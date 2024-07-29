@@ -17,8 +17,8 @@ export async function connectToMongoDB() {
   }
 }
 
-mongoose.connection.on("error", (err) => {
-  logger.error(`MongoDB connection error: ${err}`);
+mongoose.connection.on("error", (err: Error) => {
+  logger.error(`MongoDB connection error: ${err.message}`);
 });
 
 export { mongoose };
