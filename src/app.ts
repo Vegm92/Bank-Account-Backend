@@ -1,14 +1,12 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import { logRequests } from "./middlewares/logging.middleware";
 import accountRoutes from "./routes/account.routes";
-
-dotenv.config();
+import { CORS_ORIGIN } from "./server";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 app.use(logRequests);
 

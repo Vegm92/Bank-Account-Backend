@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 import { logger } from "./logger";
-
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/bankapp";
+import { MONGODB_URI } from "../server";
 
 export async function connectToMongoDB() {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(MONGODB_URI);
     logger.info("Successfully connected to MongoDB!");
   } catch (error: unknown) {
     if (error instanceof Error) {
