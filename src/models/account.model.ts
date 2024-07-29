@@ -1,8 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
 
-const accountSchema = new mongoose.Schema({
+interface IAccount extends Document {
+  id: string;
+  balance: number;
+}
+
+const AccountSchema: Schema = new Schema({
   id: { type: String, required: true, unique: true },
   balance: { type: Number, required: true },
 });
 
-export const Account = mongoose.model("Account", accountSchema);
+export const Account = mongoose.model<IAccount>("Account", AccountSchema);
