@@ -2,11 +2,10 @@ import express from "express";
 import cors from "cors";
 import { logRequests } from "./middlewares/logging.middleware";
 import accountRoutes from "./routes/account.routes";
-import { CORS_ORIGIN } from "./server";
 
 const app = express();
 
-app.use(cors({ origin: CORS_ORIGIN }));
+app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json());
 app.use(logRequests);
 

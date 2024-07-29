@@ -8,7 +8,7 @@ dotenv.config();
 export const PORT = process.env.PORT || 3000;
 export const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/bankapp";
-export const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
+export const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:5173";
 
 async function startServer() {
   await connectToMongoDB();
